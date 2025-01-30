@@ -1,5 +1,5 @@
-## Hi there 👋
-
+## Hi there 👋 My name is Murad.
+- 🔭 I’m currently working on engineering desing company! 
 <!--
 **KhadzhimuradRadzhabov/KhadzhimuradRadzhabov** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 

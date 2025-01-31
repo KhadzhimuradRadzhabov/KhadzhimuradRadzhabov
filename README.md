@@ -1,7 +1,7 @@
 ## Hi there 👋 My name is Murad.
 **I'm data analist and data engineer**
 - 🔭 I’m currently working on engineering desing company!
-- My goal is to find hidden meanings in numbers
+- My goal is finding hidden meanings in numbers
 <!--
 **KhadzhimuradRadzhabov/KhadzhimuradRadzhabov** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 

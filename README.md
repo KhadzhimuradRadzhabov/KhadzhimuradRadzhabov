@@ -9,7 +9,7 @@
 |---|:------------- |:---------------:| -------------:|
 |1. | Недвижимость в Санкт-Петербурге      | Исследование зависимости цены объектов от различных параметров, исходя из данных объявлений о продаже квартир | pandas, numpy |
 |2. | Приложение ProcrastinatePRO+ | Исследование бизнес метрик на основе данных клиентов сервиса | Pandas, numpy, matplotlib Когортный анализ, бизнес-метрика |
-|3. | zebra stripes | are neat        |        ~~$1~~ |
+|3. | Сервис аренды самокатов GoFast | Статистический анализ данных клиента сервеса, на основе выводов выявление гипотез и их проверка | pandas, numpy, scipy |
 
 <!--
 **KhadzhimuradRadzhabov/KhadzhimuradRadzhabov** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.

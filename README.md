@@ -7,9 +7,9 @@
 
 | # | Проект  | Описание | Стек |
 |---|:------------- |:---------------:| -------------:|
-|1. | Недвижимость в Санкт-Петербурге      | Исследование зависимости цены объектов от различных параметров, исходя из данных объявлений о продаже квартир | pandas, numpy |
+|1. | [Недвижимость в Санкт-Петербурге](https://github.com/KhadzhimuradRadzhabov/KhadzhimuradRadzhabov/blob/main/ProjectSaintPetersburg/Недвижимость%20в%20Санкт-Петербурге.ipynb) | Исследование зависимости цены объектов от различных параметров, исходя из данных объявлений о продаже квартир | pandas, numpy |
 |2. | Приложение ProcrastinatePRO+ | Исследование бизнес метрик на основе данных клиентов сервиса | Pandas, numpy, matplotlib Когортный анализ, бизнес-метрика |
-|3. | Сервис аренды самокатов GoFast | Статистический анализ данных клиента сервеса, на основе выводов выявление гипотез и их проверка | pandas, numpy, scipy |
+|3. | [Сервис аренды самокатов GoFast](https://github.com/KhadzhimuradRadzhabov/KhadzhimuradRadzhabov/blob/main/GoFast/Сервис%20GoFast%20.ipynb) | Статистический анализ данных клиента сервеса, на основе выводов выявление гипотез и их проверка | pandas, numpy, scipy |
 
 <!--
 **KhadzhimuradRadzhabov/KhadzhimuradRadzhabov** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.

@@ -3,7 +3,7 @@
 - 🔭 I’m currently working on engineering desing company!
 - My goal is finding hidden meanings in numbers
 
-My contacts: +7(901)754-27-06 WhatsApp, Telegram (nickname: @dzhabar_32)
+My contacts: +7(901)754-27-06 WhatsApp, [Telegram](https://t.me/@dzhabar_32)
 
 Здесь собраны некоторые реализованные проекты
 

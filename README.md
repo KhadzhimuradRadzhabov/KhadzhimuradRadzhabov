@@ -3,6 +3,8 @@
 - 🔭 I’m currently working on engineering desing company!
 - My goal is finding hidden meanings in numbers
 
+My contacts: WhatsApp, Telegram (nickname: @dzhabar_32)
+
 Здесь собраны некоторые реализованные проекты
 
 | # | Проект  | Описание | Стек |

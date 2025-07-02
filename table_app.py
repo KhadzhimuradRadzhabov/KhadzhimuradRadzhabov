@@ -1,11 +1,14 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
+import io
 
 input_file = r"Основная таблица.csv"
 table = pd.read_csv(input_file)
+table = table.drop(columns=['Unnamed: 0'])
 
 st.title("Фильтр по МНН и классификациям")
+buffer = io.BytesIO()
 
 # фильтр
 mnn_selection = st.multiselect("Выберите МНН", sorted(table['Molecule'].unique()))
@@ -22,7 +25,22 @@ atc3_selection = st.multiselect("Выберите ATC3", sorted(table['ATC3'].dr
 # собираем таблицу и выводим
 if mnn_selection:
     st.subheader("Результат по выбранным МНН")
-    st.dataframe(table[table['Molecule'].isin(mnn_selection)])
+    table["CAGR 5Y, руб"] = table["CAGR 5Y, руб"].astype(float).map('{:.1%}'.format)
+    table["CAGR 5Y, уп"] = table["CAGR 5Y, уп"].astype(float).map('{:.1%}'.format)
+    st.dataframe(table[table['Molecule'].isin(mnn_selection)].reset_index(drop=True))
+
+    with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
+        # Write each dataframe to a different worksheet.
+        table[table['Molecule'].isin(mnn_selection)].reset_index(drop=True).to_excel(writer, sheet_name='Sheet1', index=False)
+        writer.close()
+
+        download = st.download_button(
+            label="Download as Excel",
+            data=buffer,
+            file_name='Сводная таблица.xlsx',
+            #mime='application/vnd.ms-excel'
+        )
+    #sdfsdf
 elif class1_selection or class2_selection or class3_selection or ephmra1_selection or ephmra2_selection or ephmra3_selection:
     df = table.copy()
     if class1_selection:
@@ -64,8 +82,6 @@ elif class1_selection or class2_selection or class3_selection or ephmra1_selecti
     if atc3_selection:
         group_cols.append('ATC3')
 
-    #df['CAGR 5Y, руб'] = pd.to_numeric(df['CAGR 5Y, руб'], errors='coerce')
-    #df['CAGR 5Y, уп'] = pd.to_numeric(df['CAGR 5Y, уп'], errors='coerce')
     
     agg_df = df.groupby(group_cols)[[
         'Кол-во игроков (МНН+NFC)',
@@ -101,14 +117,29 @@ elif class1_selection or class2_selection or class3_selection or ephmra1_selecti
     cagru_df = pd.merge(baseu, futureu, on=group_cols, how="outer")
 
     #считаем CAGR по уп
-    agg_df["CAGR 5Y, тыс уп"] = np.where(
-        (cagru_df["base_19"] > 0) & (cagru_df["future_24"] >= 0),
+    agg_df["CAGR 5Y, уп"] = np.where(
+        (cagru_df["base_19"] > 0) & (cagru_df["future_24"] >= 0), 
         round((cagru_df["future_24"] / cagru_df["base_19"]) ** (1/4) - 1, 2),
         np.nan
     )
 
+    agg_df["CAGR 5Y, руб"] = agg_df["CAGR 5Y, руб"].astype(float).map('{:.1%}'.format)
+    agg_df["CAGR 5Y, уп"] = agg_df["CAGR 5Y, уп"].astype(float).map('{:.1%}'.format)
     
     st.subheader("Сводная таблица")
     st.dataframe(agg_df)
+ 
+    with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
+        # Write each dataframe to a different worksheet.
+        agg_df.to_excel(writer, sheet_name='Sheet1', index=False)
+        writer.close()
+
+        download = st.download_button(
+            label="Download as Excel",
+            data=buffer,
+            file_name='Сводная таблица.xlsx',
+            #mime='application/vnd.ms-excel'
+        )
+    
 else:
-    st.warning("Выбери хотя бы МНН или одну из классификаций.")
+    st.warning("Выбери МНН или классификацию")

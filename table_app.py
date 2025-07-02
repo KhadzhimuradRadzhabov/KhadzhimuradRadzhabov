@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 
-input_file = r"\\gamma\users\radzhabov\Desktop\Документы в  работу Раджабов ХА\Скрипт для IQVIA\Основная таблица.csv"
+input_file = r"/workspaces/KhadzhimuradRadzhabov/Основная таблица.csv"
 table = pd.read_csv(input_file)
 
 st.title("Фильтр по МНН и классификациям")
